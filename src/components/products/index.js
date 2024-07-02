@@ -36,8 +36,9 @@ const ShopProducts = () => {
 
   if (!isLoading && !isError && products?.products?.length > 0) {
     const prd_items = products.products;
-    const show_prd = prd_items.filter((item) => item.itemInfo === activeTab);
-    content = show_prd.map((product) => (
+    // const show_prd = prd_items.filter((item) => item.itemInfo === activeTab);
+    
+    content = prd_items.map((product) => (
       <div key={product._id} className="col-xl-3 col-lg-4 col-md-6 col-sm-6">
         <SingleProduct product={product} />
       </div>
@@ -45,7 +46,7 @@ const ShopProducts = () => {
   }
   return (
     <>
-      <section className={`product__popular-area pb-20`}>
+      <section className={`product__popular-area pt-50 pb-20`}>
         <div className="container">
           <div className="row align-items-end">
             <div className="col-xl-6 col-lg-6 col-md-6">

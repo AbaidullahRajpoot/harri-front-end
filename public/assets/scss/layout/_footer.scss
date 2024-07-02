@@ -2078,7 +2078,7 @@
         margin-bottom: 8px;
 
         & a{
-            color: var(--tp-theme-1);
+            color: var(--tp-theme-1-dark);
             text-decoration: underline;
         }
     }
@@ -3203,7 +3203,7 @@
                             margin-bottom: 15px;
                             line-height: 1;
                             font-size: 15px;
-                            color: var(--tp-text-1);
+                            color: var(--tp-text-1); 
                             a{
                                 font-family: var(--tp-ff-inter);
                                 font-weight: 400;
@@ -3229,10 +3229,10 @@
                 &__contact{
                     &-call{
                         span{
-                            color: var(--tp-common-black);
+                            color: var(--tp-theme-1-dark);
 
                             &:hover{
-                                color: var(--tp-theme-1);
+                                color: var(--tp-theme-1-dark);
                             }
                         }
                     }

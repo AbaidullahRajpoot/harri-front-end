@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
+import Link from "next/link";
 // internal
 import ErrorMessage from "@components/error-message/error";
 
@@ -93,6 +94,10 @@ const ContactForm = () => {
               I am bound by the terms of the Service I accept Privacy Policy.
             </label>
           </div>
+          <p>By submitting this online enquiry you consent to the sharing of you information with and
+           to be contacted by Zoel IT LTD for the purpose of responding to your enquiry. For further details on how we collect, 
+           use and disclose personal information you should refer to our 
+          <Link style={{textDecoration:"underline"}} href="/policy">  Privacy Policy</Link></p>
         </div>
         <div className="col-md-5">
           <div className="contact__btn-2">

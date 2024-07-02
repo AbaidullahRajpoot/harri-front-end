@@ -20,7 +20,7 @@ const menu_data = [
     title: 'Pages',
     link: '/about',
     submenus: [
-      { title: 'FAQs', link: '/faq' },
+      // { title: 'FAQs', link: '/faq' },
       { title: 'Privacy & Policy', link: '/policy' },
       { title: 'Terms & Conditions', link: '/terms' },
       { title: 'Login', link: '/login' },
@@ -29,7 +29,7 @@ const menu_data = [
       { title: 'My Cart', link: '/cart' },
       { title: 'My Wishlist', link: '/wishlist' },
       { title: 'Checkout', link: '/checkout' },
-      { title: 'Error 404', link: '/404' },
+      // { title: 'Error 404', link: '/404' },
     ]
   },
   {

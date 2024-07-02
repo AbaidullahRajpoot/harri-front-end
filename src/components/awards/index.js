@@ -54,7 +54,7 @@ const Awards = () => {
           <div className="row">
             <div className="col-xxl-12">
               <div className={`section__title-wrapper-9 mb-55 text-center`}>
-                <h3 className="section__title-9">Our Awards.</h3>
+                <h3 className="section__title-9">Our Company Mission.</h3>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ const About = () => {
         subtitle="About us"
         title={
           <>
-            Welcome to our <br /> Harri Shop
+            Welcome to  <br /> Zoel IT
           </>
         }
       />
@@ -25,8 +25,8 @@ const About = () => {
       <AboutGallery />
       <Awards />
       <AboutFaqs />
-      <Teams />
-      <Brands />
+      {/* <Teams />
+      <Brands /> */}
     </React.Fragment>
   );
 };

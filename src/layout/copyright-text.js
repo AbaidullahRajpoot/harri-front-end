@@ -3,10 +3,15 @@ import React from "react";
 
 const CopyrightText = () => {
   return (
-    <p>
-      Copyright © {new Date().getFullYear()} by <Link href="/">Hamart</Link> {' '}
-      All rights reserved.
-    </p>
+    <>
+      <span style={{color:"#fff"}}>
+        Copyright © {new Date().getFullYear()} by Zoel IT All rights reserved
+      </span>
+      <br></br>
+      <span  style={{color:"#fff"}} >
+        Company Registration Number: 15458184
+      </span>
+    </>
   );
 };
 

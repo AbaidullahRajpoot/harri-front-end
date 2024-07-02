@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 import menu_data from './menu-data';
-
+import { StickyContext } from '@utils/stickeyHeaderContext';
 const Menus = () => {
+  const sticky = useContext(StickyContext);
   return (
     <ul>
       {menu_data.map((menu, i) => (
@@ -10,7 +11,7 @@ const Menus = () => {
           <Link href={`${menu.link}`}>
             {menu.title}
           </Link>
-          {menu.hasDropdown && <ul className="submenu">
+          {menu.hasDropdown && <ul className={`submenu ${sticky && "purple-bg"}`}>
             {menu.submenus.map((sub, i) => (
               <li key={i}>
                 <Link href={`${sub.link}`}>

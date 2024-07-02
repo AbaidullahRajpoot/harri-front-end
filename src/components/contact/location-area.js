@@ -6,7 +6,7 @@ import location_icon_2 from "@assets/img/contact/contact-location-2.png";
 import location_icon_3 from "@assets/img/contact/contact-location-3.png";
 
 // single location item
-function SingleLocationItem({ title, icon, location, tel }) {
+function SingleLocationItem({ title, icon, location, tel,address }) {
   return (
     <div className="contact__location-item">
       <div className="row align-items-center">
@@ -29,7 +29,7 @@ function SingleLocationItem({ title, icon, location, tel }) {
           </div>
         </div>
         <div className="col-lg-3 col-md-4 col-sm-5">
-          <div className="contact__location-btn text-sm-end">
+          {/* <div className="contact__location-btn text-sm-end">
             <a
               rel="noreferrer"
               href="https://www.google.com/maps/place/102+Thompson+St,+New+York,+NY+10012,+USA/@40.7255437,-74.004061,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598c338f691d:0x6d5f394e7a1962cc!8m2!3d40.7255397!4d-74.0018723"
@@ -38,7 +38,8 @@ function SingleLocationItem({ title, icon, location, tel }) {
             >
               view location
             </a>
-          </div>
+          </div> */}
+          <div className="contact__location-btn ">{address}</div>
         </div>
       </div>
     </div>
@@ -65,22 +66,19 @@ const LocationArea = () => {
           <div className="col-xl-10 ">
             <div className="contact__location-wrapper">
               <SingleLocationItem
-                title="Australia Office"
+                title="UK Office"
                 icon={location_icon_1}
-                location="contact.location@website.com"
-                tel="686-324-6838"
+                location="info@zoelit.com"
+                tel="+44 161 791 5621"
+                address="66 Seymour Grove, Old Trafford, Manchester, M16 0LN, England"
               />
               <SingleLocationItem
-                title="San Francisco Office"
+                title="Pakistan Office"
                 icon={location_icon_2}
-                location="contact.location@website.com"
-                tel="686-324-6810"
-              />
-              <SingleLocationItem
-                title="Egpyt Office"
-                icon={location_icon_3}
-                location="contact.location@website.com"
-                tel="786-324-6810"
+                location="info@zoelit.com"
+                tel="+92 3007404044"
+                address="123 - CC - Citi Housing Society, Gujranwala, 52310, Pakistan"
+
               />
             </div>
           </div>

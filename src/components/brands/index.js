@@ -75,6 +75,7 @@ const Brands = () => {
 
   return (
     <>
+    <h2 className="text-center mb-40 ">Our Partners</h2>
       <section
         className={`brand__area pb-120`}
       >

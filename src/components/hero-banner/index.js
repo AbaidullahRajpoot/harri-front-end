@@ -5,8 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade } from "swiper";
 // internal
 import slider_img_1 from "@assets/img/slider/13/slider-1.png";
-import slider_img_2 from "@assets/img/slider/13/slider-1.png";
-import slider_img_3 from "@assets/img/slider/13/slider-1.png";
+import slider_img_2 from "@assets/img/slider/13/slider-2.png";
+import slider_img_3 from "@assets/img/slider/13/slider-3.png";
 import { RightArrow } from "@svg/index";
 
 const slider_data = [
@@ -14,12 +14,12 @@ const slider_data = [
     id: 1,
     pre_title: (
       <>
-        Best Ear <br /> Headphones
+        Purchase Best  <br />  Products
       </>
     ),
     title: (
       <>
-        Find Best <br /> Matley Sound.
+        Find your  <br />  Rhythym.
       </>
     ),
     img: slider_img_1,
@@ -28,12 +28,12 @@ const slider_data = [
     id: 2,
     pre_title: (
       <>
-        Best Ear <br /> Headphones
+        Purchase Top Quality  <br />  Products
       </>
     ),
     title: (
       <>
-        Find your <br /> Beats Studio.
+        Find your  <br />  Computer Gears.
       </>
     ),
     img: slider_img_2,
@@ -42,12 +42,12 @@ const slider_data = [
     id: 3,
     pre_title: (
       <>
-        Best Ear <br /> Headphones
+        Best Tech  <br />  Gadgets
       </>
     ),
     title: (
       <>
-        Music To <br /> Fill Your Heart
+        Find your  <br /> Beats Studio.
       </>
     ),
     img: slider_img_3,
@@ -55,8 +55,8 @@ const slider_data = [
 ];
 
 const HeroBanner = () => {
-  const [loop,setLoop] = useState(false);
-  useEffect(() => setLoop(true),[]);
+  const [loop, setLoop] = useState(false);
+  useEffect(() => setLoop(true), []);
   return (
     <>
       <section className="slider__area">

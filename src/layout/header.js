@@ -12,7 +12,7 @@ import CartSidebar from "@components/common/sidebar/cart-sidebar";
 import OffCanvas from "@components/common/off-canvas";
 import useCartInfo from "@hooks/use-cart-info";
 import SearchForm from "@components/forms/search-form";
-
+import { StickyContext } from "@utils/stickeyHeaderContext";
 const Header = ({ style_2 = false }) => {
   const { sticky } = useSticky();
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -21,7 +21,7 @@ const Header = ({ style_2 = false }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { user: userInfo } = useSelector((state) => state.auth);
   return (
-    <>
+    <StickyContext.Provider value={sticky}>
       <header>
         <div className={`header__area ${style_2 ? "" : "header__transparent"}`}>
           <div
@@ -36,14 +36,14 @@ const Header = ({ style_2 = false }) => {
                   <div className="col-xxl-1 col-xl-2 col-lg-4 col-md-4 col-sm-5 col-8">
                     <div className="logo">
                       <Link href="/">
-                      {sticky ?  <Image src={Sitelogo} alt="logo" /> : <Image src={logo} alt="logo" />}
+                      {sticky ?  <Image style={{height:50}} src={Sitelogo} alt="logo" /> : <Image style={{height:50}} src={logo} alt="logo" />}
                       </Link>
                     </div>
                   </div>
                   <div className="col-xxl-6 col-xl-7 d-none d-xl-block">
                     <div className="main-menu main-menu-13 pl-45 main-menu-ff-space">
                       <nav id="mobile-menu-3">
-                        <Menus />
+                        <Menus/>
                       </nav>
                     </div>
                   </div>
@@ -138,7 +138,7 @@ const Header = ({ style_2 = false }) => {
         setIsOffCanvasOpen={setIsOffCanvasOpen}
       />
       {/* off canvas end */}
-    </>
+    </StickyContext.Provider>
   );
 };
 

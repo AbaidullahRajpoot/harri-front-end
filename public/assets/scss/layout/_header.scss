@@ -2460,6 +2460,19 @@
                                 }
                             }
                         }
+
+                        & .purple-bg{
+                            & li{
+                                & a{
+                                    color: var(--tp-common-white) !important;
+                                }
+                                &:hover{
+                                    & > a{
+                                        color: var(--tp-text-1) !important;
+                                    }
+                                }
+                            }
+                        }
     
                         & .mega-menu{
                             & li{

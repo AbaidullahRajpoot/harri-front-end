@@ -113,14 +113,20 @@ const Footer = () => {
                       </p>
                       <div className="footer__contact">
                         <div className="footer__contact-call">
-                          <span>
-                            <a href="tel:624-423-26-72">+624 423 26 72</a>
-                          </span>
+                      
+                            <p style={{marginBottom:0}}>UK Phone Number</p>
+                            <span>+44 749637 9004</span><br></br>
+                            <p style={{marginBottom:0}}>UK Landline</p>
+                            <span>+44 161 791 5621</span><br></br>
+                            <p style={{marginBottom:0}}>Pakistan Phone Number</p>
+                            <span>+92 3007404044</span><br></br>
+                       
                         </div>
                         <div className="footer__contact-mail">
+                        <p style={{marginBottom:0}}>Email</p>
                           <span>
-                            <a href="mailto:support@harry.com">
-                              support@harry.com
+                            <a style={{color:"#fff"}} href="mailto:support@harry.com">
+                            info@zoelit.com
                             </a>
                           </span>
                         </div>

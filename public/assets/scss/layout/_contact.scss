@@ -756,9 +756,9 @@
         & p{
             font-family: var(--tp-ff-space);
             font-weight: 500;
-            font-size: 22px;
+            font-size: 16px;
             line-height: 1.36;
-            letter-spacing: -0.02em;
+            letter-spacing: -.02em;
             color: var(--tp-common-black);
             margin-bottom: 0;
             & a{
@@ -767,7 +767,6 @@
                 }
             }
         }
-
         &-2{
             margin-bottom: 43px;
             & .contact-title{             

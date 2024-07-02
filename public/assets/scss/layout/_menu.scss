@@ -3,47 +3,55 @@
 /*----------------------------------------*/
 /*  04. MENU CSS START
 /*----------------------------------------*/
+.purple-bg {
+    background-color: var(--tp-common-purple) !important;
+}
 
-.main-menu{
-    @include rtl{
+.main-menu {
+    @include rtl {
         padding-left: 0;
         padding-right: 55px;
     }
-    @media #{$lg}{
+
+    @media #{$lg} {
         padding-left: 30px;
-        @include rtl{
+
+        @include rtl {
             padding-left: 0;
             padding-right: 30px;
         }
     }
-    & ul{
-        & li{
+
+    & ul {
+        & li {
             position: relative;
             list-style: none;
             display: inline-block;
             margin-right: 34px;
 
-            @include rtl{
+            @include rtl {
                 margin-right: 0;
                 margin-left: 34px;
             }
 
-            @media #{$lg}{
+            @media #{$lg} {
                 margin-right: 25px;
-                @include rtl{
+
+                @include rtl {
                     margin-left: 25px;
                     margin-right: 0;
                 }
             }
 
-            &:last-child{
+            &:last-child {
                 margin-right: 0;
-                @include rtl{
+
+                @include rtl {
                     margin-left: 0;
                 }
             }
 
-            & a{
+            & a {
                 display: inline-block;
                 font-size: 16px;
                 font-weight: 500;
@@ -51,15 +59,16 @@
                 padding: 16px 0;
                 text-align: left;
 
-                @include rtl{
+                @include rtl {
                     text-align: right;
                 }
             }
 
-			&.has-dropdown{
-				& > a{
+            &.has-dropdown {
+                &>a {
                     position: relative;
-                    &::after{
+
+                    &::after {
                         content: '\f107';
                         @include transform(translateY(1px));
                         font-size: 14px;
@@ -70,20 +79,22 @@
                         display: inline-block;
                         @extend %tp-transition;
 
-                        @include rtl{
+                        @include rtl {
                             margin-right: 5px;
                             margin-left: 0;
                         }
                     }
                 }
-			}
+            }
 
-            &.has-mega-menu{
+            &.has-mega-menu {
                 position: static;
             }
 
             /* submenu css start */
-			& .submenu{
+
+
+            & .submenu {
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -94,48 +105,51 @@
                 opacity: 0;
                 transform-origin: top center;
                 padding: 25px 0 5px;
-                background: var(--tp-common-white);
                 @include transform(scaleY(0));
                 @extend %tp-transition;
                 @include box-shadow(0px 20px 30px rgba(3, 4, 28, 0.1));
 
-                @include rtl{
+                @include rtl {
                     left: auto;
                     right: 0;
                 }
-                & li{
+
+
+                & li {
                     display: block;
                     width: 100%;
-					margin: 0;
+                    margin: 0;
                     padding: 0;
                     @include transform(translateY(-10px));
 
-                    &.has-dropdown{
-                        & > a{
-                            &::after{
-								position: absolute;
-								top: 50%;
+                    &.has-dropdown {
+                        &>a {
+                            &::after {
+                                position: absolute;
+                                top: 50%;
                                 right: 25px;
                                 @include transform(translateY(-50%) rotate(-90deg));
                                 color: var(--tp-common-black);
 
-                                @include rtl{
+                                @include rtl {
                                     right: auto;
                                     left: 25px;
                                 }
                             }
                         }
                     }
-                    & a{
+
+                    & a {
                         position: relative;
                         z-index: 11;
-						color: var(--tp-common-black);
+                        color: var(--tp-common-black);
                         font-weight: 400;
                         font-size: 14px;
                         padding: 0 25px;
                         padding-bottom: 1px;
                         width: 100%;
-                        &::before{
+
+                        &::before {
                             position: absolute;
                             content: '';
                             left: 25px;
@@ -146,40 +160,45 @@
                             background-color: var(--tp-theme-1);
                             @extend %tp-transition;
 
-                            @include rtl{
+                            @include rtl {
                                 left: auto;
                                 right: 25px;
                             }
                         }
                     }
-                    & .submenu{
+
+                    & .submenu {
                         left: 100%;
-                        top:0;
+                        top: 0;
                         visibility: hidden;
                         opacity: 0;
 
-                        @include rtl{
+                        @include rtl {
                             left: auto;
                             right: 100%;
                         }
                     }
-                    &:hover{
-                        & > a{
+
+                    &:hover {
+                        &>a {
                             color: var(--tp-theme-1);
                             padding-left: 43px;
 
-                            @include rtl{
+                            @include rtl {
                                 padding-left: 0;
                                 padding-right: 43px;
                             }
-                            &::before{
+
+                            &::before {
                                 width: 12px;
                             }
-                            &::after{
+
+                            &::after {
                                 color: var(--tp-theme-1);
                             }
                         }
-                        & > .submenu{
+
+                        &>.submenu {
                             @include transform(translateY(1));
                             visibility: visible;
                             opacity: 1;
@@ -189,7 +208,7 @@
             }
 
             /* mega menu start */
-            & .mega-menu{
+            & .mega-menu {
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -203,24 +222,24 @@
                 @extend %tp-transition;
                 z-index: 99;
 
-                @include rtl{
+                @include rtl {
                     right: 0;
                     left: auto;
                 }
 
-                & li{
+                & li {
                     float: left;
                     width: 25%;
                     margin-right: 0;
                     text-align: left;
 
-                    @include rtl{
+                    @include rtl {
                         float: right;
                         margin-left: 0;
                         text-align: right;
                     }
 
-                    & .mega-menu-title{
+                    & .mega-menu-title {
                         font-weight: 500;
                         font-size: 12px;
                         letter-spacing: 0.1em;
@@ -231,28 +250,29 @@
                         display: inline-block;
                         margin-bottom: 10px;
 
-                        &::before{
+                        &::before {
                             display: none;
                         }
                     }
 
-                    & ul{
-                        & li{
+                    & ul {
+                        & li {
                             width: 100%;
                             float: none;
                             margin-bottom: 2px;
 
-                            &:last-child{
+                            &:last-child {
                                 margin-bottom: 0;
                             }
 
-                            & a{
+                            & a {
                                 font-weight: 400;
                                 font-size: 14px;
                                 color: var(--tp-common-black);
                                 padding: 0;
                                 position: relative;
-                                &::before{
+
+                                &::before {
                                     position: absolute;
                                     content: '';
                                     left: 0;
@@ -265,34 +285,36 @@
                                     background-color: var(--tp-theme-1);
                                     @extend %tp-transition;
 
-                                    @include rtl{
+                                    @include rtl {
                                         right: 0;
                                         left: auto;
                                     }
-                                    
+
                                 }
-                            }                           
+                            }
                         }
                     }
-                    &:hover{
-                        & > .mega-menu-title{
+
+                    &:hover {
+                        &>.mega-menu-title {
                             color: var(--tp-theme-1);
                             padding-left: 0;
 
-                            @include rtl{
+                            @include rtl {
                                 padding-right: 0;
                             }
                         }
 
-                        & > a{
+                        &>a {
                             color: var(--tp-theme-1);
                             padding-left: 18px;
 
-                            @include rtl{
-                               padding-left: 0;
-                               padding-right: 18px;
+                            @include rtl {
+                                padding-left: 0;
+                                padding-right: 18px;
                             }
-                            &::before{
+
+                            &::before {
                                 width: 12px;
                             }
                         }
@@ -300,149 +322,165 @@
                 }
             }
 
-            &:hover{
-				& > a{
-					color: var(--tp-theme-1);
-					&::after{
-						color: var(--tp-theme-1);
-					}
-				}
-				& > .submenu{
-					visibility: visible;
-					opacity: 1;
+            &:hover {
+                &>a {
+                    color: var(--tp-theme-1);
+
+                    &::after {
+                        color: var(--tp-theme-1);
+                    }
+                }
+
+                &>.submenu {
+                    visibility: visible;
+                    opacity: 1;
                     @include transform(scaleY(1));
-				}
-				& .mega-menu{
-					visibility: visible;
-					opacity: 1;
+                }
+
+                & .mega-menu {
+                    visibility: visible;
+                    opacity: 1;
                     @include transform(scaleY(1));
-				}
-			}
+                }
+            }
         }
     }
-    &-ff{
-        &-space{
-            & ul{
-                & li{
-                    & a{
+
+    &-ff {
+        &-space {
+            & ul {
+                & li {
+                    & a {
                         font-family: var(--tp-ff-space);
                     }
                 }
             }
         }
-        &-syne{
-            & ul{
-                & li{
-                    & a{
+
+        &-syne {
+            & ul {
+                & li {
+                    & a {
                         font-family: var(--tp-ff-syne);
                     }
                 }
             }
         }
     }
-    &-2{
+
+    &-2 {
         text-align: center;
-        @media #{$lg}{
+
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
     }
-    &-3{
-        @media #{$lg}{
+
+    &-3 {
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
+        & ul {
+            & li {
                 margin-right: 25px;
 
-                @include rtl{
+                @include rtl {
                     margin-right: 0;
                     margin-left: 25px;
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-white);
                     padding: 21px 0;
-                    
+
                 }
 
-                & .submenu{
+                & .submenu {
                     background-color: var(--tp-common-black-5);
                     border: 1px solid var(--tp-border-1);
 
-                    & li{
-                        & a{
+                    & li {
+                        & a {
                             color: var(--tp-common-white);
                         }
 
-                        &.has-dropdown{
-                            & > a{
-                                &::after{
+                        &.has-dropdown {
+                            &>a {
+                                &::after {
                                     color: var(--tp-common-white);
                                 }
                             }
-                            &:hover{
-                                & > a{
-                                    &::after{
+
+                            &:hover {
+                                &>a {
+                                    &::after {
                                         color: var(--tp-theme-3);
                                     }
                                 }
                             }
                         }
-                        
+
                     }
                 }
-                & .mega-menu{
+
+                & .mega-menu {
                     background-color: var(--tp-common-black-5);
                     border: 1px solid var(--tp-border-1);
-                    & li{
-                        & .mega-menu-title{
+
+                    & li {
+                        & .mega-menu-title {
                             color: rgba($color: #fff, $alpha: .7);
                         }
-                        & ul{
-                            & li{
-                                & a{
+
+                        & ul {
+                            & li {
+                                & a {
                                     color: var(--tp-common-white);
                                 }
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-3);   
-                                        &::before{
+
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-3);
+
+                                        &::before {
                                             background-color: var(--tp-theme-3);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-3);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-3);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-3);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-3);
                         }
                     }
@@ -450,31 +488,35 @@
             }
         }
     }
-    &-4{
-        @include rtl{
+
+    &-4 {
+        @include rtl {
             padding-right: 0;
         }
-        @media #{$lg}{
+
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
-                &:last-child{
+        & ul {
+            & li {
+                &:last-child {
                     margin-right: 0;
-                    @include rtl{
+
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-white);
                     padding: 11px 0;
 
-                    &::before{
+                    &::before {
                         position: absolute;
                         content: '';
                         left: auto;
@@ -485,38 +527,38 @@
                         background-color: var(--tp-theme-4);
                         @extend %tp-transition;
 
-                        @include rtl{
+                        @include rtl {
                             left: 0;
                             right: auto;
                         }
                     }
-                    
-                    
+
+
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-white);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
+                & .submenu {
+                    & li {
+                        & a {
                             color: var(--tp-common-black);
 
-                            &::before{
+                            &::before {
                                 background-color: var(--tp-theme-4);
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-4);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-theme-4);
                                 }
                             }
@@ -524,44 +566,45 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-4);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-4);
+
+                                        &::before {
                                             background-color: var(--tp-theme-4);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-4);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-4);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-4);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-4);
                         }
 
-                        &::before{
+                        &::before {
                             width: 100%;
                             left: 0;
                             right: auto;
 
-                            @include rtl{
+                            @include rtl {
                                 left: auto;
                                 right: 0;
                             }
@@ -571,88 +614,93 @@
             }
         }
     }
-    &-5{
+
+    &-5 {
         margin-left: -66px;
         padding-right: 0;
-        @include rtl{
+
+        @include rtl {
             margin-left: 0;
             margin-right: -66px;
             padding-right: 0;
         }
 
-        @media #{$xxl}{
-           margin-left: -50px;
+        @media #{$xxl} {
+            margin-left: -50px;
 
-           @include rtl{
-            margin-left: 0;
-            margin-right: -50px;
-            padding-right: 0;
-           }
-        }
-
-        @media #{$xl}{
-           margin-left: -45px;
-
-           @include rtl{
-            margin-left: 0;
-            margin-right: -45px;
-            padding-right: 0;
-           }
-        }
-
-        @media #{$lg}{
-            padding-left: 0;
-
-            @include rtl{
+            @include rtl {
+                margin-left: 0;
+                margin-right: -50px;
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
-                @media #{$xl, $lg}{
+        @media #{$xl} {
+            margin-left: -45px;
+
+            @include rtl {
+                margin-left: 0;
+                margin-right: -45px;
+                padding-right: 0;
+            }
+        }
+
+        @media #{$lg} {
+            padding-left: 0;
+
+            @include rtl {
+                padding-right: 0;
+            }
+        }
+
+        & ul {
+            & li {
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
 
-                &:last-child{
+                &:last-child {
                     margin-right: 0;
-                    @include rtl{
+
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-black);
                     padding: 25px 0;
-                    
+
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-black);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
+                & .submenu {
+                    & li {
+                        & a {
                             color: var(--tp-common-black);
-                            &::before{
+
+                            &::before {
                                 background-color: var(--tp-theme-5);
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-5);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-theme-5);
                                 }
                             }
@@ -660,35 +708,36 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-5);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-5);
+
+                                        &::before {
                                             background-color: var(--tp-theme-5);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-5);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-5);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-5);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-5);
                         }
                     }
@@ -696,71 +745,76 @@
             }
         }
     }
-    &-6{
+
+    &-6 {
         margin-left: 20px;
 
-        @include rtl{
+        @include rtl {
             margin-left: 0;
             margin-right: 20px;
         }
-        @media #{$lg}{
+
+        @media #{$lg} {
             padding-left: 0;
             margin-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
                 margin-right: 0;
             }
         }
-        & ul{
-            & li{
 
-                @media #{$lg}{
+        & ul {
+            & li {
+
+                @media #{$lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-black-10);
                     padding: 25px 0;
                     font-size: 15px;
                     font-family: var(--tp-ff-roboto);
                 }
-                
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-black-10);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
+                & .submenu {
+                    & li {
+                        & a {
                             color: var(--tp-common-black-10);
 
-                            &::before{
+                            &::before {
                                 background-color: var(--tp-theme-6);
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-6);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-theme-6);
                                 }
                             }
@@ -768,35 +822,36 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-6);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-6);
+
+                                        &::before {
                                             background-color: var(--tp-theme-6);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-6);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-6);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-6);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-6);
                         }
                     }
@@ -804,71 +859,76 @@
             }
         }
     }
-    &-7{
-        @include rtl{
+
+    &-7 {
+        @include rtl {
             padding-right: 0;
         }
-        @media #{$lg}{
+
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
+        & ul {
+            & li {
                 margin-right: 40px;
 
-                @include rtl{
+                @include rtl {
                     margin-right: 0;
                     margin-left: 40px;
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
 
-                &:last-child{
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-black);
                     padding: 25px 0;
                     font-size: 16px;
                     font-weight: 400;
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-black);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
+                & .submenu {
+                    & li {
+                        & a {
                             color: var(--tp-common-black);
-                            &::before{
+
+                            &::before {
                                 background-color: var(--tp-theme-7);
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-7);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-theme-7);
                                 }
                             }
@@ -876,35 +936,36 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-7);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-7);
+
+                                        &::before {
                                             background-color: var(--tp-theme-7);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-7);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-7);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-7);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-7);
                         }
                     }
@@ -912,43 +973,47 @@
             }
         }
     }
-    &-8{
 
-        @media #{$lg, $xxl}{
+    &-8 {
+
+        @media #{$lg, $xxl} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
+        & ul {
+            & li {
 
-                @media #{$xxl}{
+                @media #{$xxl} {
                     margin-right: 30px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 30px;
                     }
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
-                & a{
+
+                & a {
                     color: var(--tp-common-white);
                     padding: 35px 0;
                     font-size: 16px;
@@ -956,29 +1021,29 @@
                     font-family: var(--tp-ff-space);
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-white);
                         }
                     }
                 }
 
-                & .submenu{
-                    
-                    & li{
-                        & a{
+                & .submenu {
 
-                            &::before{
+                    & li {
+                        & a {
+
+                            &::before {
                                 background-color: var(--tp-theme-8);
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-8);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-theme-8);
                                 }
                             }
@@ -986,35 +1051,36 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-8);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-8);
+
+                                        &::before {
                                             background-color: var(--tp-theme-8);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-8);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-8);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-8);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-8);
                         }
                     }
@@ -1022,54 +1088,59 @@
             }
         }
     }
-    &-9{
-        @media #{$lg}{
+
+    &-9 {
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
+        & ul {
+            & li {
                 margin-right: 35px;
 
-                @include rtl{
+                @include rtl {
                     margin-right: 0;
                     margin-left: 35px;
                 }
-                @media #{$xxl}{
+
+                @media #{$xxl} {
                     margin-right: 30px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 30px;
                     }
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
 
-                & a{
+                & a {
                     font-family: var(--tp-ff-syne);
                     font-weight: 500;
                     font-size: 16px;
                     color: rgba($color: #051214, $alpha: .8);
                     padding: 30px 0;
-                    &::before{
+
+                    &::before {
                         position: absolute;
                         content: '';
                         left: 0;
@@ -1083,45 +1154,45 @@
                     }
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: rgba($color: #051214, $alpha: .8);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        &.has-dropdown{
-                            & a{
-                                &::after{
+                & .submenu {
+                    & li {
+                        &.has-dropdown {
+                            & a {
+                                &::after {
                                     color: rgba($color: #051214, $alpha: .8);
                                 }
                             }
                         }
 
-                        & a{
+                        & a {
                             color: rgba($color: #051214, $alpha: .8);
 
-                            &::before{
+                            &::before {
                                 right: auto;
                                 left: 25px;
                                 background-color: var(--tp-common-black);
                             }
 
-                            
+
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-common-black);
 
-                                &::after{
+                                &::after {
                                     color: var(--tp-common-black);
                                 }
 
-                                &::before{
+                                &::before {
                                     width: 12px;
 
                                 }
@@ -1130,40 +1201,41 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-9);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-9);
+
+                                        &::before {
                                             background-color: var(--tp-theme-9);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-9);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-9);
                             }
                         }
                     }
                 }
 
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-common-black);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-common-black);
                         }
 
-                        &::before{
+                        &::before {
                             width: 100%;
 
                         }
@@ -1172,81 +1244,87 @@
             }
         }
     }
-    &-10{
+
+    &-10 {
         padding-left: 25px;
 
-        @include rtl{
+        @include rtl {
             padding-left: 0;
             padding-right: 25px;
         }
 
-        @media #{$lg}{
+        @media #{$lg} {
             padding-left: 0;
-            @include rtl{
+
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
-                @media #{$xxl}{
+        & ul {
+            & li {
+                @media #{$xxl} {
                     margin-right: 30px;
-                    @include rtl{
+
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 30px;
                     }
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
-                    @include rtl{
+
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
 
-                & a{
+                & a {
                     padding: 27px 0;
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: rgba($color: #fff, $alpha: 1);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
-                            &::before{
+                & .submenu {
+                    & li {
+                        & a {
+                            &::before {
                                 right: auto;
                                 left: 25px;
                                 background-color: var(--tp-theme-10);
 
-                                @include rtl{
+                                @include rtl {
                                     right: 25px;
                                     left: auto;
                                 }
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-10);
 
-                                &::after{
-                                    color:  var(--tp-theme-10);
+                                &::after {
+                                    color: var(--tp-theme-10);
                                 }
 
-                                &::before{
+                                &::before {
                                     width: 12px;
 
                                 }
@@ -1255,39 +1333,40 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-10);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-10);
+
+                                        &::before {
                                             background-color: var(--tp-theme-10);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-10);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-10);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-theme-10);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-theme-10);
                         }
 
-                        &::before{
+                        &::before {
                             width: 100%;
 
                         }
@@ -1296,44 +1375,50 @@
             }
         }
     }
-    &-11{
-        
-        @media #{$lg}{
+
+    &-11 {
+
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
-                @media #{$xxl}{
+        & ul {
+            & li {
+                @media #{$xxl} {
                     margin-right: 30px;
-                    @include rtl{
+
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 30px;
                     }
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
-                    @include rtl{
+
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
-                    @include rtl{
+
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
 
-                & a{
+                & a {
                     padding: 27px 0;
                     color: var(--tp-common-black-19);
 
-                    &::before{
+                    &::before {
                         position: absolute;
                         content: '';
                         left: 0;
@@ -1347,38 +1432,38 @@
                     }
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-black-19);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
-                            &::before{
+                & .submenu {
+                    & li {
+                        & a {
+                            &::before {
                                 right: auto;
                                 left: 25px;
                                 background-color: var(--tp-theme-10);
 
-                                @include rtl{
+                                @include rtl {
                                     left: auto;
                                     right: 25px;
                                 }
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-10);
 
-                                &::after{
-                                    color:  var(--tp-theme-10);
+                                &::after {
+                                    color: var(--tp-theme-10);
                                 }
 
-                                &::before{
+                                &::before {
                                     width: 12px;
 
                                 }
@@ -1387,42 +1472,44 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                & a{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                & a {
                                     color: var(--tp-common-black-19);
                                 }
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-common-black);   
-                                        &::before{
+
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-common-black);
+
+                                        &::before {
                                             background-color: var(--tp-common-black);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-common-black);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-common-black);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-common-black);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-common-black);
                         }
 
-                        &::before{
+                        &::before {
                             width: 100%;
 
                         }
@@ -1431,53 +1518,57 @@
             }
         }
     }
-    &-12{
-        
-        @media #{$lg}{
+
+    &-12 {
+
+        @media #{$lg} {
             padding-left: 0;
 
-            @include rtl{
+            @include rtl {
                 padding-right: 0;
             }
         }
 
-        & ul{
-            & li{
+        & ul {
+            & li {
                 margin-right: 36px;
 
-                @include rtl{
+                @include rtl {
                     margin-right: 0;
                     margin-left: 36px;
                 }
-                @media #{$xxl}{
+
+                @media #{$xxl} {
                     margin-right: 30px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 30px;
                     }
                 }
-                @media #{$xl, $lg}{
+
+                @media #{$xl, $lg} {
                     margin-right: 25px;
 
-                    @include rtl{
+                    @include rtl {
                         margin-right: 0;
                         margin-left: 25px;
                     }
                 }
-                &:last-child{
+
+                &:last-child {
                     margin-right: 0;
 
-                    @include rtl{
+                    @include rtl {
                         margin-left: 0;
                     }
                 }
 
-                & a{
+                & a {
                     padding: 25px 0;
                     color: var(--tp-common-black-19);
 
-                    &::before{
+                    &::before {
                         position: absolute;
                         content: '';
                         left: 0;
@@ -1491,38 +1582,38 @@
                     }
                 }
 
-                &.has-dropdown{
-                    & a{
-                        &::after{
+                &.has-dropdown {
+                    & a {
+                        &::after {
                             color: var(--tp-common-black-19);
                         }
                     }
                 }
 
-                & .submenu{
-                    & li{
-                        & a{
-                            &::before{
+                & .submenu {
+                    & li {
+                        & a {
+                            &::before {
                                 right: auto;
                                 left: 25px;
                                 background-color: var(--tp-theme-10);
 
-                                @include rtl{
+                                @include rtl {
                                     right: 25px;
                                     left: auto;
                                 }
                             }
                         }
 
-                        &:hover{
-                            & > a{
+                        &:hover {
+                            &>a {
                                 color: var(--tp-theme-10);
 
-                                &::after{
-                                    color:  var(--tp-theme-10);
+                                &::after {
+                                    color: var(--tp-theme-10);
                                 }
 
-                                &::before{
+                                &::before {
                                     width: 12px;
 
                                 }
@@ -1531,39 +1622,40 @@
                     }
                 }
 
-                & .mega-menu{
-                    & li{
-                        & ul{
-                            & li{
-                                &:hover{
-                                    & > a{
-                                        color: var(--tp-theme-10);   
-                                        &::before{
+                & .mega-menu {
+                    & li {
+                        & ul {
+                            & li {
+                                &:hover {
+                                    &>a {
+                                        color: var(--tp-theme-10);
+
+                                        &::before {
                                             background-color: var(--tp-theme-10);
                                         }
                                     }
                                 }
-                            
+
                             }
                         }
 
-                        &:hover{
-                            & > .mega-menu-title{
-                                color: var(--tp-theme-10);                  
+                        &:hover {
+                            &>.mega-menu-title {
+                                color: var(--tp-theme-10);
                             }
                         }
                     }
                 }
 
-                &:hover{
-                    & > a{
+                &:hover {
+                    &>a {
                         color: var(--tp-common-black);
 
-                        &::after{
+                        &::after {
                             color: var(--tp-common-black);
                         }
 
-                        &::before{
+                        &::before {
                             width: 100%;
 
                         }
@@ -1572,26 +1664,28 @@
             }
         }
     }
-    &-13{
-        & ul{
-            & li{
+
+    &-13 {
+        & ul {
+            & li {
                 margin-right: 30px;
 
-                @include rtl{
+                @include rtl {
                     margin-right: 0;
                     margin-left: 30px;
                 }
 
-                @media #{$xxl}{
+                @media #{$xxl} {
                     margin-right: 25px;
 
-                @include rtl{
-                    margin-right: 0;
-                    margin-left: 25px;
-                }
+                    @include rtl {
+                        margin-right: 0;
+                        margin-left: 25px;
+                    }
 
                 }
-                & a{
+
+                & a {
                     font-size: 15px;
                     padding: 25px 0;
                 }
