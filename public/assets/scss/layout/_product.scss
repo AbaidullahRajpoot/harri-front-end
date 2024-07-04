@@ -843,7 +843,7 @@
                 font-weight: 400;
                 font-size: 16px;
                 text-decoration-line: line-through;
-                color: var(--tp-text-1);
+                color: var(--tp-theme-1);
             }
             &.new-ammount{
                 font-weight: 600;
@@ -953,11 +953,11 @@
             & span{
                 font-size: 15px;
                 line-height: 1;
-                color: var(--tp-text-1);
+                color: var(--tp-common-black);
 
                 & a{
                     &:hover{
-                        color: var(--tp-theme-1);
+                        color: var(--tp-common-black);
                     }
                 }
             }
@@ -984,7 +984,7 @@
             & a{
                 font-size: 14px;
                 line-height: 1;
-                color: var(--tp-text-1);
+                color: var(--tp-common-black);
                 border: 1px solid #DADCE0;
                 padding: 4px 12px;
                 margin-bottom: 6px;
@@ -1015,7 +1015,7 @@
             & a{
                 font-size: 14px;
                 line-height: 1;
-                color: var(--tp-text-1);
+                color: var(--tp-common-black);
                 margin-bottom: 6px;
                 margin-right: 10px;
 
@@ -1123,7 +1123,7 @@
                     font-family: var(--tp-ff-roboto);
                     font-size: 18px;
                     line-height: 1.67;
-                    color: var(--tp-text-1);
+                    color: var(--tp-common-black);
                     margin-bottom: 25px;
                 }
             }

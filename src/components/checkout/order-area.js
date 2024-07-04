@@ -16,6 +16,7 @@ const OrderArea = ({
   handleShippingCost,
   setClientSecret,
   isCheckoutSubmit,
+  loading
 }) => {
   const { cart_products } = useSelector((state) => state.cart);
   return (
@@ -81,6 +82,7 @@ const OrderArea = ({
                   cardError={error}
                   cart_products={cart_products}
                   isCheckoutSubmit={isCheckoutSubmit}
+                  loading={loading}
                 />
               </div>
             </div>

@@ -34,6 +34,7 @@ const useCheckoutSubmit = () => {
   const [isCheckoutSubmit, setIsCheckoutSubmit] = useState(false);
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
+  const [loading, setLoading] = useState(false); 
   
   const dispatch = useDispatch();
   const router = useRouter();
@@ -173,9 +174,9 @@ const useCheckoutSubmit = () => {
 
   // submitHandler
   const submitHandler = async (data) => {
-    console.log("enter")
     dispatch(set_shipping(data));
     setIsCheckoutSubmit(true);
+    setLoading(true); 
 
     let orderInfo = {
       name: `${data.firstName} ${data.lastName}`,
@@ -210,6 +211,7 @@ const useCheckoutSubmit = () => {
       console.log(error)
       setCardError(error?.message);
       setIsCheckoutSubmit(false);
+      setLoading(false);
     } else {
       setCardError("");
       const orderData = {
@@ -218,6 +220,7 @@ const useCheckoutSubmit = () => {
       };
       handlePaymentWithStripe(orderData);
       setIsCheckoutSubmit(false);
+      setLoading(false);
       return;
     }
   };
@@ -225,6 +228,7 @@ const useCheckoutSubmit = () => {
   // handlePaymentWithStripe
   const handlePaymentWithStripe = async (order) => {
     try {
+      setLoading(true);
       const { paymentIntent, error: intentErr } =
         await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
@@ -237,6 +241,7 @@ const useCheckoutSubmit = () => {
         });
       if (intentErr) {
         notifyError(intentErr.message);
+        setLoading(false); 
       } else {
         // notifySuccess("Your payment processed successfully");
       }
@@ -251,7 +256,7 @@ const useCheckoutSubmit = () => {
       })
       .then((result) => {
           if(result?.error){
-
+            setLoading(false); 
           }
           else {
             router.push(`/order/${result.data?.order?._id}`);
@@ -259,9 +264,11 @@ const useCheckoutSubmit = () => {
           }
           if(result.data?.success){
           }
+          setLoading(false); 
         })
     } catch (err) {
       console.log(err);
+      setLoading(false); 
     }
   };
 
@@ -286,6 +293,7 @@ const useCheckoutSubmit = () => {
     setClientSecret,
     cartTotal,
     isCheckoutSubmit,
+    loading
   };
 };
 

@@ -18,6 +18,7 @@ const schema = Yup.object().shape({
 const LoginForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [loginUser, {}] = useLoginUserMutation();
+  const router = useRouter();
   // react hook form
   const {
     register,
@@ -39,9 +40,10 @@ const LoginForm = () => {
         }
         else {
           notifySuccess("Login successfully");
+          router.push('/user-dashboard')
         }
       })
-    reset();
+    reset(); 
   };
 
   return (

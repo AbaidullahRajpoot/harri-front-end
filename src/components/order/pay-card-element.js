@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CardElement } from "@stripe/react-stripe-js";
 
-const PaymentCardElement = ({ stripe, cardError, cart_products,isCheckoutSubmit }) => {
+const PaymentCardElement = ({ stripe, cardError, cart_products, isCheckoutSubmit, loading }) => {
   return (
     <div className="my-2">
       <CardElement
@@ -21,13 +21,23 @@ const PaymentCardElement = ({ stripe, cardError, cart_products,isCheckoutSubmit 
         }}
       />
       <div className="order-button-payment mt-25">
-        <button
-          type="submit"
-          className="tp-btn"
-          disabled={!stripe || cart_products.length === 0 || isCheckoutSubmit}
-        >
-          Place order
-        </button>
+        {loading == true ?
+          <button
+            className="tp-btn"
+            disabled
+          >
+            Loading...
+          </button>
+          :
+          <button
+            type="submit"
+            className="tp-btn"
+            disabled={!stripe || cart_products.length === 0 || isCheckoutSubmit}
+          >
+            Place order
+          </button>
+        }
+
       </div>
       {cardError && (
         <p className="mt-15" style={{ color: "red" }}>

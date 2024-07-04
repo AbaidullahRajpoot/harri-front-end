@@ -10,33 +10,8 @@ const CouponArea = (props) => {
     <section className="coupon-area pt-120 pb-30">
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
-            <div className="coupon-accordion">
-              <h3>
-                Returning customer?{" "}
-                <span
-                  onClick={() => setCheckoutLogin(!checkoutLogin)}
-                  id="showlogin"
-                >
-                  Click here to login
-                </span>
-              </h3>
-              {checkoutLogin && (
-                <div id="checkout-login" className="coupon-content">
-                  <div className="coupon-info">
-                    <p className="coupon-text">
-                      Quisque gravida turpis sit amet nulla posuere lacinia.
-                      Cras sed est sit amet ipsum luctus.
-                    </p>
-                    {/* form start */}
-                    <LoginForm />
-                    {/* form end */}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="col-md-6">
+        
+          <div className="col-md-12">
             <div className="coupon-accordion">
               <h3>
                 Have a coupon?{" "}
