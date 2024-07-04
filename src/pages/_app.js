@@ -7,6 +7,7 @@ if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 import "../styles/index.scss";
+import "../styles/LoadingSpinner.css";
 
 // stripePromise
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);

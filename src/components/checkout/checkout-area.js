@@ -1,10 +1,15 @@
+import LoadingSpinner from "@components/LoadingSpinner/LoadingSpinner";
 import React, { useState } from "react";
 // internal
 import BillingDetails from "./billing-details";
 import OrderArea from "./order-area";
 
-const CheckoutArea = ({handleSubmit,submitHandler,...others}) => {
+const CheckoutArea = ({handleSubmit,submitHandler,loading,...others}) => {
   return (
+    <>
+    {
+      loading==true && <LoadingSpinner/>
+    }
     <section className="checkout-area pb-85">
       <div className="container">
         <form onSubmit={handleSubmit(submitHandler)}>
@@ -28,6 +33,7 @@ const CheckoutArea = ({handleSubmit,submitHandler,...others}) => {
         </form>
       </div>
     </section>
+    </>
   );
 };
 

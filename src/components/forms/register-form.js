@@ -7,6 +7,7 @@ import { Email, EyeCut, Lock, UserTwo } from "@svg/index";
 import ErrorMessage from "@components/error-message/error";
 import { useRegisterUserMutation } from "src/redux/features/auth/authApi";
 import { notifyError, notifySuccess } from "@utils/toast";
+import LoadingSpinner from "@components/LoadingSpinner/LoadingSpinner";
 
 
 const schema = Yup.object().shape({
@@ -21,6 +22,7 @@ const schema = Yup.object().shape({
 const RegisterForm = () => {
   const [showPass, setShowPass] = useState(false);
   const [showConPass, setShowConPass] = useState(false);
+  const [loading, setloading] = useState(false);
   const [registerUser, {}] = useRegisterUserMutation();
   // react hook form
   const { register, handleSubmit, formState:{ errors },reset } = useForm({
@@ -28,6 +30,7 @@ const RegisterForm = () => {
   });
   // on submit
   const onSubmit = (data) => {
+    setloading(true)
    try {
     registerUser({
       name:data.name,
@@ -36,9 +39,11 @@ const RegisterForm = () => {
       confirmPassword:data.confirmPassword,
     }).then((result) => {
       if(result?.error){
+        setloading(false)
         notifyError('Register Failed');
       }
       else {
+        setloading(false)
         notifySuccess(result?.data?.message);
       }
     })
@@ -49,6 +54,8 @@ const RegisterForm = () => {
   };
 
   return (
+    <>
+    {loading==true && <LoadingSpinner/>}
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="login__input-wrapper">
         <div className="login__input-item">
@@ -139,6 +146,7 @@ const RegisterForm = () => {
         </button>
       </div>
     </form>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import { EyeCut, Lock, UserTwo } from "@svg/index";
 import ErrorMessage from "@components/error-message/error";
 import { useLoginUserMutation } from "src/redux/features/auth/authApi";
 import { notifyError, notifySuccess } from "@utils/toast";
+import LoadingSpinner from "@components/LoadingSpinner/LoadingSpinner";
 
 const schema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -17,6 +18,7 @@ const schema = Yup.object().shape({
 
 const LoginForm = () => {
   const [showPass, setShowPass] = useState(false);
+  const [loading, setloading] = useState(false);
   const [loginUser, {}] = useLoginUserMutation();
   const router = useRouter();
   // react hook form
@@ -30,15 +32,18 @@ const LoginForm = () => {
   });
   // onSubmit
   const onSubmit = (data) => {
+    setloading(true)
     loginUser({
       email: data.email,
       password: data.password,
     })
       .then((data) => {
         if(data?.error){
+          setloading(false)
           notifyError(data?.error?.data?.error)
         }
         else {
+          setloading(false)
           notifySuccess("Login successfully");
           router.push('/user-dashboard')
         }
@@ -47,6 +52,10 @@ const LoginForm = () => {
   };
 
   return (
+    <>
+   {
+    loading == true && <LoadingSpinner/>
+   }
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="login__input-wrapper">
         <div className="login__input-item">
@@ -107,6 +116,7 @@ const LoginForm = () => {
         </button>
       </div>
     </form>
+    </>
   );
 };
 
