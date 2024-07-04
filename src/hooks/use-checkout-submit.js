@@ -211,7 +211,6 @@ const useCheckoutSubmit = () => {
       console.log(error)
       setCardError(error?.message);
       setIsCheckoutSubmit(false);
-      setLoading(false);
     } else {
       setCardError("");
       const orderData = {
@@ -220,7 +219,6 @@ const useCheckoutSubmit = () => {
       };
       handlePaymentWithStripe(orderData);
       setIsCheckoutSubmit(false);
-      setLoading(false);
       return;
     }
   };
@@ -228,7 +226,6 @@ const useCheckoutSubmit = () => {
   // handlePaymentWithStripe
   const handlePaymentWithStripe = async (order) => {
     try {
-      setLoading(true);
       const { paymentIntent, error: intentErr } =
         await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
