@@ -54,7 +54,7 @@ const TextArea = () => {
             <div className="about__text-wrapper wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
               <h1 style={{ color: "var(--tp-theme-1)" }}>Zoel-IT</h1><h2><em>IT For Life</em></h2>
             </div>
-            <p>Whether you're a business looking for robust IT solutions or an individual seeking the latest technology, Zoel IT is here to redefine your IT experience.
+            <p>Whether youre a business looking for robust IT solutions or an individual seeking the latest technology, Zoel IT is here to redefine your IT experience.
               Our physical store and office in Pakistan have been a testament to our commitment, and now, we extend that commitment to the UK and Germany as we embark on this exciting new chapter.
               Join us on this journey, and let Zoel IT be your partner in shaping a future powered by technology.
             </p>
@@ -68,7 +68,7 @@ const TextArea = () => {
                 Whether you need networking solutions, servers, laptops, software licenses, or any other IT essentials, Zoel IT is your one-stop destination.</p>
               <h5>Family-Owned Tradition</h5>
               <p>We take pride in our family-owned heritage, and it reflects in our personalized approach to customer service.
-                At Zoel IT, you're not just a customer – you're part of our extended family. Your success is our success, and we are dedicated to ensuring your satisfaction.
+                At Zoel IT, youre not just a customer – youre part of our extended family. Your success is our success, and we are dedicated to ensuring your satisfaction.
               </p>
               <h5>Global Expansion</h5>
               <p>Zoel IT is excited to announce its foray into the UK and Germany markets.
