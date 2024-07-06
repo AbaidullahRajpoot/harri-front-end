@@ -18,8 +18,8 @@ import {
 
 const useCheckoutSubmit = () => {
   const { data: offerCoupons, isError, isLoading } = useGetOfferCouponsQuery();
-  const [addOrder, {}] = useAddOrderMutation();
-  const [createPaymentIntent, {}] = useCreatePaymentIntentMutation();
+  const [addOrder, { }] = useAddOrderMutation();
+  const [createPaymentIntent, { }] = useCreatePaymentIntentMutation();
   const { cart_products } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.auth);
   const { shipping_info } = useSelector((state) => state.order);
@@ -34,8 +34,8 @@ const useCheckoutSubmit = () => {
   const [isCheckoutSubmit, setIsCheckoutSubmit] = useState(false);
   const [cardError, setCardError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const [loading, setLoading] = useState(false); 
-  
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const router = useRouter();
   const stripe = useStripe();
@@ -113,7 +113,7 @@ const useCheckoutSubmit = () => {
   // handleCouponCode
   const handleCouponCode = (e) => {
     e.preventDefault();
-
+    console.log("enter")
     if (!couponRef.current?.value) {
       notifyError("Please Input a Coupon Code!");
       return;
@@ -147,6 +147,7 @@ const useCheckoutSubmit = () => {
       notifySuccess(
         `Your Coupon ${result[0].title} is Applied on ${result[0].productType}!`
       );
+      console.log(result[0])
       setMinimumAmount(result[0]?.minimumAmount);
       setDiscountProductType(result[0].productType);
       setDiscountPercentage(result[0].discountPercentage);
@@ -170,13 +171,13 @@ const useCheckoutSubmit = () => {
     setValue("zipCode", shipping_info.zipCode);
     setValue("email", shipping_info.email);
     setValue("contact", shipping_info.contact);
-  }, [user, setValue, shipping_info,router]);
+  }, [user, setValue, shipping_info, router]);
 
   // submitHandler
   const submitHandler = async (data) => {
     dispatch(set_shipping(data));
     setIsCheckoutSubmit(true);
-    setLoading(true); 
+    setLoading(true);
 
     let orderInfo = {
       name: `${data.firstName} ${data.lastName}`,
@@ -193,7 +194,7 @@ const useCheckoutSubmit = () => {
       shippingCost: shippingCost,
       discount: discountAmount,
       totalAmount: cartTotal,
-      user:`${user?._id}`
+      user: `${user?._id}`
     };
     if (!stripe || !elements) {
       return;
@@ -238,7 +239,7 @@ const useCheckoutSubmit = () => {
         });
       if (intentErr) {
         notifyError(intentErr.message);
-        setLoading(false); 
+        setLoading(false);
       } else {
         // notifySuccess("Your payment processed successfully");
       }
@@ -251,21 +252,21 @@ const useCheckoutSubmit = () => {
       addOrder({
         ...orderData,
       })
-      .then((result) => {
-          if(result?.error){
-            setLoading(false); 
+        .then((result) => {
+          if (result?.error) {
+            setLoading(false);
           }
           else {
             router.push(`/order/${result.data?.order?._id}`);
             notifySuccess("Your Order Confirmed!");
           }
-          if(result.data?.success){
+          if (result.data?.success) {
           }
-          setLoading(false); 
+          setLoading(false);
         })
     } catch (err) {
       console.log(err);
-      setLoading(false); 
+      setLoading(false);
     }
   };
 

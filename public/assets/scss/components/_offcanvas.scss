@@ -3,7 +3,14 @@
 /*----------------------------------------*/
 /*  OFFCANVAS CSS START
 /*----------------------------------------*/
-
+.Profile{
+    color: transparent;
+  height: 120px;
+  width: 120px;
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 15px;
+}
 .offcanvas{
     $self : &;
     &__area{
@@ -330,7 +337,7 @@
             line-height: 40px;
             border: 2px solid var(--tp-border-5);
             background-color: transparent;
-            color: var(--tp-text-1);
+            color: var(--tp-common-black);
             border-radius: 50%;
             &:hover{
                 background-color: var(--tp-theme-1);

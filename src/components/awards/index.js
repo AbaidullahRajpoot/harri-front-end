@@ -14,34 +14,34 @@ import {RightArrowTwo} from "@svg/index";
 const award_data = [
   {
     id: "one",
-    topic: "FREE SHIPPING",
-    title: "Modern painting award jump",
+    topic: "Highest Quality IT Equipment and Software",
+    title: "Ensuring Quality IT Solutions",
     data_src: award_img_1,
-    subtitle: "Runner Up - “ Decor of the week “",
+    subtitle: "Our commitment to quality ensures you receive products that meet the most stringent standards.",
     delay: ".3s",
   },
   {
     id: "two",
-    topic: "FREE RETURN",
-    title: "People's choice: best design",
+    topic: "Authorized Reseller",
+    title: "Bringing You Genuine Products",
     data_src: award_img_2,
-    subtitle: "Runner Up - “ Decor of the week “",
+    subtitle: "Confidently invest in authentic IT solutions that power your business efficiently.",
     delay: ".5s",
   },
   {
     id: "three",
-    topic: "SECURE PAYMENT",
-    title: "Webby's, Site of the Year",
+    topic: "Wide Range of Brands",
+    title: "Explore Top-Notch Brands",
     data_src: award_img_3,
-    subtitle: "Runner Up - “ Decor of the week “",
+    subtitle: "Our comprehensive catalog caters to all your IT requirements.",
     delay: ".7s",
   },
   {
     id: "four",
-    topic: "BEST QUALITY",
-    title: "Awwwards site of the day",
+    topic: "Our Product Range",
+    title: "Discover Cutting-Edge Solutions",
     data_src: award_img_4,
-    subtitle: "Runner Up - “ Decor of the week “",
+    subtitle: "Networking, Hardware, Software, and Collaborative Displays.",
     delay: ".7s",
   },
 ];
@@ -102,9 +102,9 @@ const Awards = () => {
                           </div>
                         </div>
                       </div>
-                      <ReactTooltip anchorId={id} type='light'>
+                      {/* <ReactTooltip anchorId={id} type='light'>
                         <Image src={data_src} alt="src" />
-                      </ReactTooltip>
+                      </ReactTooltip> */}
                     </React.Fragment>
                   );
                 })}

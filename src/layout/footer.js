@@ -68,7 +68,7 @@ const Footer = () => {
                   col_3="2"
                   title="Company"
                   contents={[
-                    { url: "#", title: "About us" },
+                    { url: "about", title: "About us" },
                     { url: "#", title: "Careers" },
                     { url: "#", title: "Store Locations" },
                     { url: "#", title: "Our Blog" },
@@ -80,12 +80,12 @@ const Footer = () => {
                   col_2="3"
                   col_3="3"
                   title="Shop"
-                  contents={[
-                    { url: "#", title: "Game & Video" },
-                    { url: "#", title: "Phone &Tablets" },
-                    { url: "#", title: "Computers & Laptop" },
-                    { url: "#", title: "Sport Watches" },
-                    { url: "#", title: "Discounts" },
+                  contents={[ 
+                    { url: "shop", title: "Game & Video" },
+                    { url: "shop", title: "Phone &Tablets" },
+                    { url: "shop", title: "Computers & Laptop" },
+                    { url: "shop", title: "Sport Watches" },
+                    { url: "shop", title: "Discounts" },
                   ]}
                 />
                 <SingleWidget
@@ -94,11 +94,10 @@ const Footer = () => {
                   col_3="4"
                   title="Support"
                   contents={[
-                    { url: "", title: "FAQs" },
-                    { url: "", title: "Reviews" },
-                    { url: "", title: "Contact Us" },
-                    { url: "", title: "Shipping" },
-                    { url: "", title: "Returns" },
+                    { url: "faq", title: "FAQs" },
+                    { url: "policy", title: "Privacy & Policy" },
+                    { url: "terms", title: "Terms & Conditions" },
+                    { url: "contact", title: "Contact us" },
                   ]}
                 />
 

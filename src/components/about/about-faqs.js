@@ -9,21 +9,21 @@ import useModal from "@hooks/use-modal";
 const faq_items = [
   {
     id: "about-one",
-    title: "Can I cancel my account at any time?",
+    title: "What makes Zoel IT a reliable choice for IT solutions?",
     show: true,
-    desc: "Non similique culpa in provident quos sit commodi beatae ea laborum suscipit id autem velit aut iusto odio et deleniti quis et doloremque enim vel consequuntur quos.",
+    desc: "Zoel IT is committed to delivering high-quality IT equipment and software. Our dedication ensures that you receive products meeting the most stringent standards, providing long-term reliability for your business.",
     parent: "faqaccordion",
   },
   {
     id: "about-two",
-    title: "What happens after the license expires?",
-    desc: "Non similique culpa in provident quos sit commodi beatae ea laborum suscipit id autem velit aut iusto odio et deleniti quis et doloremque enim vel consequuntur quos.",
+    title: "How diverse is Zoel IT's product range?",
+    desc: "Zoel IT offers a wide array of IT solutions, including networking solutions from industry giants like Cisco, hardware innovations from HP and Dell, software expertise from Microsoft and Adobe, and collaborative displays from ViewSonic.",
     parent: "faqaccordion",
   },
   {
     id: "about-three",
-    title: "Does Harry have any documentations?",
-    desc: "Non similique culpa in provident quos sit commodi beatae ea laborum suscipit id autem velit aut iusto odio et deleniti quis et doloremque enim vel consequuntur quos.",
+    title: "How does Zoel IT ensure authenticity in its products?",
+    desc: "As an authorized online reseller, Zoel IT brings you genuine and certified products from trusted industry names. When you choose Zoel IT, you invest in authentic IT solutions that power your business efficiently.",
     parent: "faqaccordion",
   },
 ];
@@ -56,7 +56,7 @@ const AboutFaqs = () => {
                    Get in touch with us to see how
                   </span>
                   <h3 className="faq__title">
-                    Provide smart and flexible digital services
+                  `Discover Our Commitment to Excellence
                   </h3>
                 </div>
                 <div className="accordion" id="faqaccordion">
