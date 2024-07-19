@@ -32,19 +32,19 @@ const OrderDetails = ({
                   required: `Shipping Option is required!`,
                 })}
                 id="flat_shipping"
+                checked 
                 type="radio"
                 name="shippingOption"
               />
               <label
-                onClick={() => handleShippingCost(60)}
+                onClick={() => handleShippingCost(20)}
                 htmlFor="flat_shipping"
               >
-                <span className="amount">Delivery: Today Cost : $60.00</span>
+                <span className="amount">Delivery Cost : $20.00</span>
               </label>
               <ErrorMessage message={errors?.shippingOption?.message} />
             </li>
-
-            <li>
+            {/* <li>
               <input
                 {...register(`shippingOption`, {
                   required: `Shipping Option is required!`,
@@ -60,7 +60,7 @@ const OrderDetails = ({
                 Delivery: 7 Days Cost : $20.00
               </label>
               <ErrorMessage message={errors?.shippingOption?.message} />
-            </li>
+            </li> */}
           </ul>
         </td>
       </tr>

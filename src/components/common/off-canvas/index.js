@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 const OffCanvas = ({ isOffCanvasOpen, setIsOffCanvasOpen }) => {
   const { user: userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
 
   return (
     <React.Fragment>

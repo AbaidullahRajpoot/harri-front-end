@@ -27,7 +27,7 @@ const useCheckoutSubmit = () => {
   const [couponInfo, setCouponInfo] = useState({});
   const [cartTotal, setCartTotal] = useState("");
   const [minimumAmount, setMinimumAmount] = useState(0);
-  const [shippingCost, setShippingCost] = useState(0);
+  const [shippingCost, setShippingCost] = useState(20);
   const [discountAmount, setDiscountAmount] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
   const [discountProductType, setDiscountProductType] = useState("");
@@ -157,7 +157,6 @@ const useCheckoutSubmit = () => {
 
   // handleShippingCost
   const handleShippingCost = (value) => {
-    // setTotal(total + value);
     setShippingCost(value);
   };
 

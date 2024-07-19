@@ -65,7 +65,7 @@ const OrderArea = ({
                 aria-expanded="true"
                 aria-controls="bankOne"
               >
-                Direct Bank Transfer
+                Pay With Card
                 <span className="accordion-btn"></span>
               </button>
             </h2>

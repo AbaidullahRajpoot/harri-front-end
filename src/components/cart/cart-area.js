@@ -11,6 +11,7 @@ import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
 
 const CartArea = () => {
   const { cart_products } = useSelector((state) => state.cart);
+  console.log("product Details",cart_products)
   return (
     <section className="cart-area pt-100 pb-100">
       <div className="container">
@@ -31,7 +32,8 @@ const CartArea = () => {
                       <tr>
                         <th className="product-thumbnail">Images</th>
                         <th className="cart-product-name">Product</th>
-                        <th className="product-price">Unit Price</th>
+                        <th className="product-price">Original Price</th>
+                        <th className="product-price">Discount Price</th>
                         <th className="product-quantity">Quantity</th>
                         <th className="product-subtotal">Total</th>
                         <th className="product-remove">Remove</th>
