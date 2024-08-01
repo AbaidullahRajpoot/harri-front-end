@@ -257,11 +257,12 @@ const useCheckoutSubmit = () => {
             //   },
             // },
           },
+          
         },
       ],
       application_context: {
-        return_url: 'http://localhost:3000/paymentSuccess',
-        cancel_url: 'http://localhost:3000/paymentCancel',
+        return_url: 'https://zoelit-front-end.vercel.app/paymentSuccess',
+        cancel_url: 'https://zoelit-front-end.vercel.app/paymentCancel',
       },
     }),
   });
