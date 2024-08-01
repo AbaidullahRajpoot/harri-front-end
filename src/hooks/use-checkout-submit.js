@@ -102,10 +102,9 @@ const useCheckoutSubmit = () => {
       })
         .then((data) => {
           setClientSecret(data.data.clientSecret);
-          console.log(data);
         })
         .then((error) => {
-          console.log(error);
+
         });
     }
   }, [createPaymentIntent, cartTotal]);
@@ -113,7 +112,6 @@ const useCheckoutSubmit = () => {
   // handleCouponCode
   const handleCouponCode = (e) => {
     e.preventDefault();
-    console.log("enter")
     if (!couponRef.current?.value) {
       notifyError("Please Input a Coupon Code!");
       return;
@@ -147,7 +145,6 @@ const useCheckoutSubmit = () => {
       notifySuccess(
         `Your Coupon ${result[0].title} is Applied on ${result[0].productType}!`
       );
-      console.log(result[0])
       setMinimumAmount(result[0]?.minimumAmount);
       setDiscountProductType(result[0].productType);
       setDiscountPercentage(result[0].discountPercentage);
@@ -174,10 +171,127 @@ const useCheckoutSubmit = () => {
 
   // submitHandler
   const submitHandler = async (data) => {
+    console.log(data)
     dispatch(set_shipping(data));
     setIsCheckoutSubmit(true);
     setLoading(true);
+    if (data.PaymentMethod == "stripe") {
+      handlePaymentGatewayStripe(data)
+    }
+    else if (data.PaymentMethod == "paypal") {
+      handlePaymentGatewayPaypal(data)
+    }
+  };
 
+  // submitHandler Paypal
+  const handlePaymentGatewayPaypal = async (data) => {
+
+    let orderInfo = {
+      name: `${data.firstName} ${data.lastName}`,
+      address: data.address,
+      contact: data.contact,
+      email: data.email,
+      city: data.city,
+      country: data.country,
+      zipCode: data.zipCode,
+      shippingOption: data.shippingOption,
+      status: "pending",
+      cart: cart_products,
+      subTotal: total,
+      shippingCost: shippingCost,
+      discount: discountAmount,
+      totalAmount: cartTotal,
+      user: `${user?._id}`
+    };
+    console.log(orderInfo)
+    // PayPal credentials
+  const clientId = 'AZJb8CElfp8wxq1RN_UAkg8TVLUv_8KtFQlqM_oCzjJiV4xNdVCaO95iYoASF1NNRrvk3i-S8DEk1wY0';
+  const clientSecret = 'EKLNcEXyjcPVm5mypFyRxingdeB8nxu2jNH8cy-RbCuTJs8Iuc1HkjPdKwjfIjRyCB0bV2sQhrcBRnCP';
+  // Obtain an OAuth 2.0 token
+  const authResponse = await fetch('https://api-m.sandbox.paypal.com/v1/oauth2/token', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      grant_type: 'client_credentials',
+    }),
+  });
+  if (!authResponse.ok) {
+    const errorData = await authResponse.json();
+    console.error('Error fetching OAuth token:', errorData);
+    return;
+  }
+  const authData = await authResponse.json();
+  const accessToken = authData.access_token;
+  // Create an order
+  const response = await fetch('https://api-m.sandbox.paypal.com/v2/checkout/orders', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({
+      intent: 'CAPTURE',
+      purchase_units: [
+        {
+          // items: [
+          //   {
+          //     name: 'T-Shirt',
+          //     description: 'Green XL',
+          //     quantity: '1',
+          //     unit_amount: {
+          //       currency_code: 'USD',
+          //       value: orderInfo.totalAmount.toFixed(2),
+          //     },
+          //   },
+          // ],
+          amount: {
+            currency_code: 'USD',
+            value: orderInfo.totalAmount.toFixed(2),
+            // breakdown: {
+            //   item_total: {
+            //     currency_code: 'USD',
+            //     value: orderInfo.totalAmount.toFixed(2),
+            //   },
+            // },
+          },
+        },
+      ],
+      application_context: {
+        return_url: 'http://localhost:3000/paymentSuccess',
+        cancel_url: 'http://localhost:3000/paymentCancel',
+      },
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    console.error('Error creating order:', errorData);
+    return;
+  }
+
+  const rs = await response.json();
+  console.log(rs)
+  const orderPaymentData = {
+    ...orderInfo,
+    cardInfo: {
+      type:"paypal",
+      paymentI:rs.id
+    },
+  };
+   if(rs && rs.links){
+    const OrderData = JSON.stringify(orderPaymentData);
+    localStorage.setItem('orderInfo', OrderData);
+    const redirectUrl=rs.links[1].href
+    window.location.href = redirectUrl;
+  }
+
+  }
+
+  // submitHandler Stripe
+  const handlePaymentGatewayStripe = async (data) => {
     let orderInfo = {
       name: `${data.firstName} ${data.lastName}`,
       address: data.address,
@@ -221,10 +335,11 @@ const useCheckoutSubmit = () => {
       setIsCheckoutSubmit(false);
       return;
     }
-  };
+  }
 
   // handlePaymentWithStripe
   const handlePaymentWithStripe = async (order) => {
+
     try {
       const { paymentIntent, error: intentErr } =
         await stripe.confirmCardPayment(clientSecret, {

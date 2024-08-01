@@ -24,6 +24,7 @@ const PaymentCardElement = ({ stripe, cardError, cart_products, isCheckoutSubmit
        
           <button
             type="submit"
+            data-payment-type="stripe"
             className="tp-btn"
             disabled={!stripe || cart_products.length === 0 || isCheckoutSubmit}
           >

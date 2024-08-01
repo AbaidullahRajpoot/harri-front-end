@@ -11,7 +11,6 @@ import EmptyCart from "@components/common/sidebar/cart-sidebar/empty-cart";
 
 const CartArea = () => {
   const { cart_products } = useSelector((state) => state.cart);
-  console.log("product Details",cart_products)
   return (
     <section className="cart-area pt-100 pb-100">
       <div className="container">
