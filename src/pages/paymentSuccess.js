@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import {
     useAddOrderMutation,
-    useCreatePaymentIntentMutation,
 } from "../redux/features/order/orderApi";
 import { useRouter } from "next/router";
 import LoadingSpinner from '@components/LoadingSpinner/LoadingSpinner';
-export default function paymentSuccess({ params }) {
-    const [addOrder, { }] = useAddOrderMutation();
+
+export default function PaymentSuccess({ params }) {
+    const [addOrder] = useAddOrderMutation();
     const router = useRouter();
 
     const handlePaymentWithStripe = async () => {
-             try {
+        try {
             const orderInfoString = localStorage.getItem('orderInfo');
             if (orderInfoString) {
                 const order = JSON.parse(orderInfoString);
@@ -21,32 +21,27 @@ export default function paymentSuccess({ params }) {
 
                 addOrder({
                     ...orderData,
-                })
-                    .then((result) => {
-                        if (result?.error) {
-
-                        }
-                        else {
-                            localStorage.removeItem('orderInfo');
-                            router.push(`/order/${result.data?.order?._id}`);
-                        }
-                        if (result.data?.success) {
-                        }
-
-                    })
+                }).then((result) => {
+                    if (result?.error) {
+                        console.error(result.error);
+                    } else {
+                        localStorage.removeItem('orderInfo');
+                        router.push(`/order/${result.data?.order?._id}`);
+                    }
+                });
             } else {
                 console.log('No order data found in local storage');
-
             }
         } catch (err) {
             console.log(err);
-
         }
     };
+
     useEffect(() => {
-        handlePaymentWithStripe()
-    }, [])
+        handlePaymentWithStripe();
+    }, []);
+
     return (
         <LoadingSpinner />
-    )
+    );
 }
